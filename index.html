@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Course Calculater</title>
+</head>
+
+<body>
+<h1>Калькулятор курса</h1>
+<h2>Структура</h2>
+<div class="structure">
+</div>
+<div class="button create">Добавить</div>
+
+
+</body>
+<script type="text/javascript">
+  document.querySelector(".create").addEventListener('click', function(){
+    if (document.querySelector(".controls") != undefined) document.querySelector(".structure").removeChild(document.querySelector(".controls"));
+    var div = document.createElement("div");
+    var controls =document.createElement("div");
+    div.className = "part";
+    div.innerHTML = "<h2> Part </h2>"
+    controls.className = "controls";
+    controls.innerHTML = "<div id = 'video'>video</div><div id = 'text'>text</div>"
+
+    document.querySelector(".structure").appendChild(div);
+    document.querySelector(".structure").appendChild(controls);
+    startControls();
+})
+
+function startControls(){
+    document.querySelector("#video").addEventListener('click', function(){
+      var video = document.createElement("div");
+      video.className = "videoFR";
+      video.innerHTML = "<p>NameVideo<br />duration: 5 мин</p>";
+      document.querySelectorAll(".part")[document.querySelectorAll(".part").length-1].appendChild(video)
+    })
+    document.querySelector("#text").addEventListener('click', function(){
+      var text = document.createElement("div");
+      text.className = "textFR";
+      text.innerHTML = "<p>NameText<br />duration: 1 лист</p>";
+      document.querySelectorAll(".part")[document.querySelectorAll(".part").length-1].appendChild(text)
+    })
+}
+</script>
+</html>
