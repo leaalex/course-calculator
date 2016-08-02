@@ -22,7 +22,7 @@
     div.className = "part";
     div.innerHTML = "<h2> Part </h2>"
     controls.className = "controls";
-    controls.innerHTML = "<div id = 'video'>video</div><div id = 'text'>text</div>"
+    controls.innerHTML = "<div id = 'video'>video</div><div id = 'text'>text</div><div id = 'problem'>problem</div>"
 
     document.querySelector(".structure").appendChild(div);
     document.querySelector(".structure").appendChild(controls);
@@ -33,15 +33,58 @@ function startControls(){
     document.querySelector("#video").addEventListener('click', function(){
       var video = document.createElement("div");
       video.className = "videoFR";
-      video.innerHTML = "<p>NameVideo<br />duration: 5 мин</p>";
+      video.innerHTML = "<p>NameVideo<br />Type: Лекция<br />duration: 5 мин</p>";
       document.querySelectorAll(".part")[document.querySelectorAll(".part").length-1].appendChild(video)
     })
     document.querySelector("#text").addEventListener('click', function(){
       var text = document.createElement("div");
       text.className = "textFR";
-      text.innerHTML = "<p>NameText<br />duration: 1 лист</p>";
+      text.innerHTML = "<p>NameText<br />Type: Лекция<br />duration: 1 лист</p>";
+      document.querySelectorAll(".part")[document.querySelectorAll(".part").length-1].appendChild(text)
+    })
+    document.querySelector("#problem").addEventListener('click', function(){
+      var text = document.createElement("div");
+      text.className = "problemElement";
+      text.innerHTML = "<p>NameProblem<br />Type: Test<br />duration: 1 лист</p>";
       document.querySelectorAll(".part")[document.querySelectorAll(".part").length-1].appendChild(text)
     })
 }
 </script>
+<style media="screen">
+  .button {
+    background-color: green;
+    color: #FFF;
+    border-radius: 4px;
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+  }
+  .botton:hover{
+    background-color: gold;
+  }
+  .controls div {
+    display:inline-block;
+    padding: 20px;
+    margin: 5px;
+    background-color: gold;
+  }
+  .part div {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid gray;
+  }
+  .videoFR{
+    background-color: pink;
+  }
+  .textFR{
+    background-color: purple;
+  }
+
+  .problemElement{
+    background-color: red;
+  }
+
+</style>
 </html>
